@@ -1,0 +1,24 @@
+POST http://localhost:8002/generate
+Content-Type: application/json
+
+{
+  "transcriptOnly": true,
+  "text": "Hello, my name is John Doe. I am a software engineer."
+}
+###
+POST http://localhost:8002/generate
+Content-Type: application/json
+
+{
+  "transcriptOnly": true,
+  "urls": ["https://telex.hu/belfold/2025/01/22/pinter-bence-fidesz-kdnp-dezsi-borkai-kozgyules-koltsegvetes"]
+}
+###
+POST http://localhost:8002/generate
+Content-Type: application/json
+
+{
+  "transcriptOnly": true,
+  "longform": true,
+  "topic": "kemoterápiás gyógyszerek mellékhatásai"
+}

@@ -13,10 +13,18 @@ app = Flask(__name__)
 def generate():
     data = request.json
     text = data.get('text')
+    urls = data.get('urls')
+    topic = data.get('topic')
+    transcript_only = not not data.get('transcriptOnly')
+    longform = not not data.get('longform')
 
     try:
         audio_file = generate_podcast(
             text=text,
+            urls=urls,
+            topic=topic,
+            transcript_only=transcript_only,
+            longform=longform,
         )
         logger.info(f"Podcast generated, file: {audio_file}")
         audio_path =  os.path.join('..', audio_file)

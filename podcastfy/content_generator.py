@@ -193,13 +193,13 @@ class LongFormContentGenerator:
             If last tag in CONTEXT is <Person1>, then the first to speak now should be <Person2>.
             If last tag in CONTEXT is <Person2>, then the first to speak now should be <Person1>.
             This is a live conversation without any breaks.
-            Hence, avoid statemeents such as "we'll discuss after a short break.  Stay tuned" or "Okay, so, picking up where we left off".
+            Hence, avoid statements such as "we'll discuss after a short break.  Stay tuned" or "Okay, so, picking up where we left off".
         """ 
 
         # Add part-specific instructions
         if part_idx == 0:
             enhanced_params["instruction"] = f"""
-            ALWAYS START THE CONVERSATION GREETING THE AUDIENCE: Welcome to {enhanced_params["podcast_name"]} - {enhanced_params["podcast_tagline"]}.
+            ALWAYS START THE CONVERSATION GREETING THE AUDIENCE (in the required language): Welcome to {enhanced_params["podcast_name"]} - {enhanced_params["podcast_tagline"]}.
             You are generating the Introduction part of a long podcast conversation.
             Don't cover any topics yet, just introduce yourself and the topic. Leave the rest for later parts, following these guidelines:
             """
