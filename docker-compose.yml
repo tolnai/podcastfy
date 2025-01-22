@@ -36,6 +36,21 @@ services:
       timeout: 10s
       retries: 3
 
+  podcastfy-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./data:/app/data
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - PYTHONPATH=/app
+      - DEBIAN_FRONTEND=noninteractive
+    ports:
+      - "8002:8000"
+    command: ["python3", "-m", "podcastfy.server"]
+
   test:
     build:
       context: .
